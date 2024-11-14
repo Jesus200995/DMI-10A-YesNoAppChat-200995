@@ -1,80 +1,75 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:app_chat_200995/domain/entities/message.dart';
+import 'package:app_chat_200995/presentation/providers/chat_provider.dart';
 import 'package:app_chat_200995/presentation/widgets/chat/her_message_bubble.dart';
 import 'package:app_chat_200995/presentation/widgets/chat/my_message_bubble.dart';
 import 'package:app_chat_200995/presentation/widgets/shared/message_field_box.dart';
 
-class ChatScreen extends StatefulWidget {
+class ChatScreen extends StatelessWidget {
   const ChatScreen({super.key});
-
-  @override
-  ChatScreenState createState() => ChatScreenState();
-}
-
-class ChatScreenState extends State<ChatScreen> {
-  // Lista de mensajes simulados
-  List<String> messages = [
-    'Hola, ¿cómo estás?',
-    'Todo bien, ¿y tú?',
-    'Aquí todo bien, gracias por preguntar!',
-  ];
-
-  void addMessage(String message) {
-    setState(() {
-      messages.add(message);  // Añade un nuevo mensaje
-    });
-  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        leading: const Padding(
-          padding: EdgeInsets.all(4.0),
-          child: CircleAvatar(
-            backgroundImage: NetworkImage(
-                'https://via.placeholder.com/150'), // URL válida para la imagen de perfil
-          ),
-        ),
-        title: const Text('Mi amor ♥️'),
-        centerTitle: false,
-      ),
-      body: _ChatView(
-        messages: messages,  // Pasa la lista de mensajes a _ChatView
-        onMessageSent: addMessage, // Pasa el método para agregar mensajes
-      ),
+      appBar: _AppBarView(),
+      body: _ChatView(),
     );
   }
 }
 
+class _AppBarView extends AppBar {
+  _AppBarView()
+      : super(
+          leading: const Padding(
+            // Espacio antes del titulo
+            padding: EdgeInsets.all(4.0),
+            child: CircleAvatar(
+              backgroundImage: NetworkImage(
+                  'https://i.pinimg.com/originals/e2/7c/72/e27c72cfb5c3c8f4c873a649f88ea540.jpg'),
+            ),
+          ),
+          title: const Text('JessChat'),
+          centerTitle: false,
+        );
+}
+
 class _ChatView extends StatelessWidget {
-  final List<String> messages;
-  final Function(String) onMessageSent;
-
-  const _ChatView({required this.messages, required this.onMessageSent});
-
   @override
   Widget build(BuildContext context) {
+    final chatProvider = context.watch<ChatProvider>();
+
     return SafeArea(
+      // SafeArea: Desplegar contenido en el cuerpo del dispositivo evita poner widgets en zonas reservadas del dispositivo
       child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 10),
+        // Crear Padding
+        padding: const EdgeInsets.symmetric(
+            horizontal: 10), // Asignar padding a los lados de igual config
         child: Column(
+          // Columna iterar widgets hacia abajo
           children: [
             Expanded(
-                child: ListView.builder(
-                    itemCount: messages.length,
-                    itemBuilder: (context, index) {
-                      final message = messages[index];
-                      return index % 2 == 0
-                          ? HerMessageBubble(message: message)  // Mensaje de "ella"
-                          : MyMessageBubble(message: message);  // Mensaje de "yo"
-                    }
-                ),
+              // expandir widget a mayor cantidad del dispositivo
+              child: ListView.builder(
+                controller: chatProvider.chatScrollController,
+                itemCount: chatProvider
+                    .messageList.length, // Cantidad de items a desplegar
+                itemBuilder: (context, index) {
+                  final message = chatProvider.messageList[index];
+
+                  return (message.fromWho == FromWho.hers)
+                      ? HerMessageBubble(message: message,)
+                      : MyMessageBubble(
+                          message: message,
+                        );
+                },
+              ), // builder solo crea en el UI los elementos a mostrar
             ),
 
             /// Caja de texto de mensajes
             MessageFieldBox(
-              onMessageSent: onMessageSent,  // Proporciona la función para enviar mensajes
-            ),
+                // onValue: (value) => chatProvider.sendMessage(value),
+                onValue: chatProvider.sendMessage),
           ],
         ),
       ),
