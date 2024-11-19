@@ -80,6 +80,9 @@ Desarrollar una aplicación de chat en Flutter que permita enviar y recibir mens
 - **Lógica de Respuesta Automática**: Detecta palabras clave en los mensajes y responde automáticamente.
 - **Soporte de Imágenes y GIFs**: Usa el paquete `cached_network_image` para optimizar la carga y visualización de multimedia.
 - **Gestión de Logs**: Implementa `logger` para registrar eventos y facilitar el seguimiento de errores y mejoras.
+- 
+![image](https://github.com/user-attachments/assets/ab06a4e6-83bc-4cc6-82ef-9817545ab4c6)
+![image](https://github.com/user-attachments/assets/8cf97279-17ee-410f-860a-5af36b03008f)
 
 ### Código Destacado
 Ejemplo de implementación de respuesta automática:
