@@ -1,35 +1,6 @@
 # DMI-10A-YesNoAppChat-200995
 Como parte de la asignatura de Desarrollo Móvil Integral (DMI), impartida por el M.T.I. Marco A. Ramírez Hernández.
 
----
-
-## Índice
-1. [Historial de Prácticas](#historial-de-prácticas)
-2. [Lista de Herramientas](#lista-de-herramientas)
-3. [Resumen del Proyecto](#resumen-del-proyecto)
-4. [Justificación](#justificación)
-5. [Objetivos](#objetivos)
-6. [Desarrollo de la Aplicación](#desarrollo-de-la-aplicación)
-7. [Conclusiones](#conclusiones)
-8. [Autor](#autor)
-
----
-
-### HISTORIAL DE PRÁCTICAS
-| No. | Nombre                                  | Potenciador | Estatus |
-|-----|-----------------------------------------|-------------|---------|
-| 22  | Integración de Widgets y Funcionalidad  | 8           | ACTIVA  |
-| 23  | Implementación de Respuesta Automática  | 8           | ACTIVA  |
-
----
-
-### LISTA DE HERRAMIENTAS
-![DART](https://img.shields.io/badge/Dart-0175c2?style=for-the-badge&logo=dart&logoColor=white)
-![FLUTTER](https://img.shields.io/badge/Flutter-02569B?style=for-the-badge&logo=flutter&logoColor=white)
-
-## AUTOR
-Elaborado por: Jesus Rios Gomez [@Jesus200995](https://github.com/Jesus200995)
-
 <div align="center">
 
 | ![Imagen 1](https://github.com/user-attachments/assets/1c6244e9-2a67-43ea-9734-663c8eccfff9) | ![Imagen 2](https://github.com/JonaIbarra/Recursos-Humanos/blob/America/Documentation/LOGO%20UNIVERSIDAD%201.jpeg) |
@@ -43,6 +14,33 @@ Elaborado por: Jesus Rios Gomez [@Jesus200995](https://github.com/Jesus200995)
 
 </div>
 
+---
+
+## Índice
+1. [Historial de Prácticas](#historial-de-prácticas)
+2. [Lista de Herramientas](#lista-de-herramientas)
+3. [Resumen del Proyecto](#resumen-del-proyecto)
+4. [Justificación](#justificación)
+5. [Objetivos](#objetivos)
+6. [Desarrollo de la Aplicación](#desarrollo-de-la-aplicación)
+7. [Autor](#autor)
+
+---
+
+### HISTORIAL DE PRÁCTICAS
+| No. | Nombre                                  | Potenciador | Estatus |
+|-----|-----------------------------------------|-------------|---------|
+| 22  | Implementacion de la UI para la Aplicacion de Yes/No   | 10       | ACTIVA  |
+| 23  | Implementacion de la Funcionalidad de la Aplicacion Yes/No  | 10          | ACTIVA  |
+
+---
+
+### LISTA DE HERRAMIENTAS
+![DART](https://img.shields.io/badge/Dart-0175c2?style=for-the-badge&logo=dart&logoColor=white)
+![FLUTTER](https://img.shields.io/badge/Flutter-02569B?style=for-the-badge&logo=flutter&logoColor=white)
+
+## AUTOR
+Elaborado por: Jesus Rios Gomez [@Jesus200995](https://github.com/Jesus200995)
 
 ---
 
